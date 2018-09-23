@@ -73,8 +73,7 @@ public class ItemsActivity extends AppCompatActivity {
 	}
 
 	private void update() {
-		BudgetEntryAdapter c = (BudgetEntryAdapter) items.getAdapter();
-		c.notifyDataSetChanged();
+		items.setAdapter(new BudgetEntryAdapter(this, budgetPlan.getItems(budgetEntryType)));
 	}
 
 	private class BudgetEntryDialog extends Dialog {

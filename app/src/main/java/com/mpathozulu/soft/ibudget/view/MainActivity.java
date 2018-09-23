@@ -44,24 +44,56 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	public void selectIncome(View view) {
-		Intent intent = new Intent(MainActivity.this, ItemsActivity.class);
-		intent.putExtra("Type", BudgetEntryType.Income);
-		intent.putExtra("BudgetMonth", budgetPlan.getMonth());
-		intent.putExtra("BudgetYear", budgetPlan.getYear());
-		startActivity(intent);
+		select(BudgetEntryType.Income);
 	}
 
-	public void selectExpenditures(View view) {
-		Intent intent = new Intent(MainActivity.this, ItemsActivity.class);
-		intent.putExtra("Type", BudgetEntryType.Expenditure);
-		intent.putExtra("BudgetMonth", budgetPlan.getMonth());
-		intent.putExtra("BudgetYear", budgetPlan.getYear());
-		startActivity(intent);
+	public void selectPersonal(View view) {
+		select(BudgetEntryType.Expenditure);
+	}
+
+	public void selectTransportation(View view) {
+		select(BudgetEntryType.Transportation);
+	}
+
+	public void selectMedical(View view) {
+		select(BudgetEntryType.Medical);
+	}
+
+	public void selectFood(View view) {
+		select(BudgetEntryType.Food);
+	}
+
+	public void selectShelter(View view) {
+		select(BudgetEntryType.Shelter);
+	}
+
+	public void selectClothing(View view) {
+		select(BudgetEntryType.Clothing);
+	}
+
+	public void selectInsurance(View view) {
+		select(BudgetEntryType.Supplies);
+	}
+
+	public void selectSupplies(View view) {
+		select(BudgetEntryType.Supplies);
+	}
+
+	public void selectDebtReduction(View view) {
+		select(BudgetEntryType.Supplies);
+	}
+
+	public void selectFunMoney(View view) {
+		select(BudgetEntryType.Supplies);
 	}
 
 	public void selectSavings(View view) {
+		select(BudgetEntryType.Saving);
+	}
+
+	private void select(BudgetEntryType type) {
 		Intent intent = new Intent(MainActivity.this, ItemsActivity.class);
-		intent.putExtra("Type", BudgetEntryType.Saving);
+		intent.putExtra("Type", type);
 		intent.putExtra("BudgetMonth", budgetPlan.getMonth());
 		intent.putExtra("BudgetYear", budgetPlan.getYear());
 		startActivity(intent);

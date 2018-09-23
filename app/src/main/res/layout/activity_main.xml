@@ -33,81 +33,242 @@
 
 
 	<android.support.v7.widget.CardView android:layout_width="match_parent"
-																			android:layout_height="wrap_content"
-																			android:layout_margin="5dp"
-																			android:onClick="selectIncome">
+										android:layout_height="wrap_content"
+										android:layout_margin="4dp"
+										android:onClick="selectIncome">
 
 		<ImageView android:layout_width="wrap_content"
-							 android:layout_height="wrap_content"
-							 android:layout_marginTop="10dp"
-							 android:src="@drawable/ic_attach_money_black_50dp"
+				   android:layout_height="wrap_content"
+				   android:layout_margin="4dp"
+				   android:src="@drawable/ic_attach_money_black_24dp"
 		/>
-		<TextView android:textSize="30sp"
+		<TextView android:textSize="15sp"
 							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
 							android:layout_gravity="center"
 							android:text="Incomes"
-							android:padding="10dp"
-							android:layout_margin="10dp"/>
+							android:padding="2dp"
+							android:layout_margin="2dp"/>
 	</android.support.v7.widget.CardView>
 
 	<android.support.v7.widget.CardView android:layout_width="match_parent"
-																			android:layout_height="wrap_content"
-																			android:layout_margin="5dp"
-																			android:onClick="selectExpenditures">
+										android:layout_height="wrap_content"
+										android:layout_margin="4dp"
+										android:onClick="selectPersonal">
 		<ImageView android:layout_width="wrap_content"
-							 android:layout_height="wrap_content"
-							 android:layout_marginTop="10dp"
-							 android:src="@drawable/ic_money_off_black_50dp"
+				   android:layout_height="wrap_content"
+				   android:layout_margin="4dp"
+				   android:src="@drawable/ic_people_black_24dp"
 		/>
-		<TextView android:textSize="30sp"
+		<TextView android:textSize="15sp"
+				  android:layout_width="wrap_content"
+				  android:layout_height="wrap_content"
+				  android:layout_gravity="center"
+				  android:text="Personal"
+				  android:padding="2dp"
+				  android:layout_margin="2dp"/>
+	</android.support.v7.widget.CardView>
+	<android.support.v7.widget.CardView android:layout_width="match_parent"
+										android:layout_height="wrap_content"
+										android:layout_margin="5dp"
+										android:onClick="selectTransportation">
+		<ImageView android:layout_width="wrap_content"
+				   android:layout_height="wrap_content"
+				   android:layout_margin="4dp"
+				   android:src="@drawable/ic_directions_car_black_24dp"
+		/>
+		<TextView android:textSize="15sp"
+				  android:layout_width="wrap_content"
+				  android:layout_height="wrap_content"
+				  android:layout_gravity="center"
+				  android:text="Transportation"
+				  android:padding="2dp"
+				  android:layout_margin="2dp"/>
+	</android.support.v7.widget.CardView>
+
+	<android.support.v7.widget.CardView android:layout_width="match_parent"
+										android:layout_height="wrap_content"
+										android:layout_margin="5dp"
+										android:onClick="selectMedical">
+		<ImageView android:layout_width="wrap_content"
+				   android:layout_height="wrap_content"
+				   android:layout_margin="4dp"
+				   android:src="@drawable/ic_local_hospital_black_24dp"
+		/>
+		<TextView android:textSize="15sp"
+				  android:layout_width="wrap_content"
+				  android:layout_height="wrap_content"
+				  android:layout_gravity="center"
+				  android:text="Medical"
+				  android:padding="2dp"
+				  android:layout_margin="2dp"/>
+	</android.support.v7.widget.CardView>
+
+	<android.support.v7.widget.CardView android:layout_width="match_parent"
+										android:layout_height="wrap_content"
+										android:layout_margin="5dp"
+										android:onClick="selectFood">
+		<ImageView android:layout_width="wrap_content"
+				   android:layout_height="wrap_content"
+				   android:layout_margin="4dp"
+				   android:src="@drawable/ic_local_dining_black_24dp"
+		/>
+		<TextView android:textSize="15sp"
+				  android:layout_width="wrap_content"
+				  android:layout_height="wrap_content"
+				  android:layout_gravity="center"
+				  android:text="Food"
+				  android:padding="2dp"
+				  android:layout_margin="2dp"/>
+	</android.support.v7.widget.CardView>
+
+	<android.support.v7.widget.CardView android:layout_width="match_parent"
+										android:layout_height="wrap_content"
+										android:layout_margin="5dp"
+										android:onClick="selectShelter">
+		<ImageView android:layout_width="wrap_content"
+				   android:layout_height="wrap_content"
+				   android:layout_margin="4dp"
+				   android:src="@drawable/ic_home_black_24dp"
+		/>
+		<TextView android:textSize="15sp"
+				  android:layout_width="wrap_content"
+				  android:layout_height="wrap_content"
+				  android:layout_gravity="center"
+				  android:text="Shelter"
+				  android:padding="2dp"
+				  android:layout_margin="2dp"/>
+	</android.support.v7.widget.CardView>
+
+	<android.support.v7.widget.CardView android:layout_width="match_parent"
+										android:layout_height="wrap_content"
+										android:layout_margin="5dp"
+										android:onClick="selectClothing">
+		<ImageView android:layout_width="wrap_content"
+				   android:layout_height="wrap_content"
+				   android:layout_margin="4dp"
+				   android:src="@drawable/ic_local_mall_black_24dp"
+		/>
+		<TextView android:textSize="15sp"
 							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
 							android:layout_gravity="center"
-							android:text="Expenditures"
-							android:padding="10dp"
-							android:layout_margin="10dp"/>
+							android:text="Clothing"
+							android:padding="2dp"
+							android:layout_margin="2dp"/>
 	</android.support.v7.widget.CardView>
 
 	<android.support.v7.widget.CardView android:layout_width="match_parent"
-																			android:layout_height="wrap_content"
-																			android:layout_margin="5dp"
-																			android:onClick="selectSavings">
+										android:layout_height="wrap_content"
+										android:layout_margin="5dp"
+										android:onClick="selectInsurance">
+		<ImageView android:layout_width="wrap_content"
+				   android:layout_height="wrap_content"
+				   android:layout_margin="4dp"
+				   android:src="@drawable/ic_security_black_24dp"
+		/>
+		<TextView android:textSize="15sp"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_gravity="center"
+							android:text="Insurance"
+							android:padding="2dp"
+							android:layout_margin="2dp"/>
+	</android.support.v7.widget.CardView>
+
+	<android.support.v7.widget.CardView android:layout_width="match_parent"
+										android:layout_height="wrap_content"
+										android:layout_margin="5dp"
+										android:onClick="selectSupplies">
+		<ImageView android:layout_width="wrap_content"
+				   android:layout_height="wrap_content"
+				   android:layout_margin="4dp"
+				   android:src="@drawable/ic_kitchen_black_24dp"
+		/>
+		<TextView android:textSize="15sp"
+				  android:layout_width="wrap_content"
+				  android:layout_height="wrap_content"
+				  android:layout_gravity="center"
+				  android:text="Supplies"
+				  android:padding="2dp"
+				  android:layout_margin="2dp"/>
+	</android.support.v7.widget.CardView>
+
+	<android.support.v7.widget.CardView android:layout_width="match_parent"
+										android:layout_height="wrap_content"
+										android:layout_margin="5dp"
+										android:onClick="selectDebtReduction">
+		<ImageView android:layout_width="wrap_content"
+				   android:layout_height="wrap_content"
+				   android:layout_margin="4dp"
+				   android:src="@drawable/ic_money_off_black_24dp"
+		/>
+		<TextView android:textSize="15sp"
+				  android:layout_width="wrap_content"
+				  android:layout_height="wrap_content"
+				  android:layout_gravity="center"
+				  android:text="Debt Reduction"
+				  android:padding="2dp"
+				  android:layout_margin="2dp"/>
+	</android.support.v7.widget.CardView>
+
+	<android.support.v7.widget.CardView android:layout_width="match_parent"
+										android:layout_height="wrap_content"
+										android:layout_margin="5dp"
+										android:onClick="selectFunMoney">
+		<ImageView android:layout_width="wrap_content"
+				   android:layout_height="wrap_content"
+				   android:layout_margin="4dp"
+				   android:src="@drawable/ic_sentiment_very_satisfied_black_24dp"
+		/>
+		<TextView android:textSize="15sp"
+				  android:layout_width="wrap_content"
+				  android:layout_height="wrap_content"
+				  android:layout_gravity="center"
+				  android:text="Fun Money"
+				  android:padding="2dp"
+				  android:layout_margin="2dp"/>
+	</android.support.v7.widget.CardView>
+
+	<android.support.v7.widget.CardView android:layout_width="match_parent"
+										android:layout_height="wrap_content"
+										android:layout_margin="5dp"
+										android:onClick="selectSavings">
 
 		<ImageView android:layout_width="wrap_content"
-							 android:layout_height="wrap_content"
-							 android:layout_margin="10dp"
-							 android:src="@drawable/ic_saving_a_dollar_coin"
+				   android:layout_height="wrap_content"
+				   android:layout_margin="4dp"
+				   android:src="@drawable/ic_saving_a_dollar_coin"
 		/>
-		<TextView android:textSize="30sp"
+		<TextView android:textSize="15sp"
 							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
 							android:layout_gravity="center"
 							android:text="Savings"
-							android:padding="10dp"
-							android:layout_margin="10dp"/>
+							android:padding="2dp"
+							android:layout_margin="2dp"/>
 	</android.support.v7.widget.CardView>
 
 	<LinearLayout android:layout_width="match_parent"
 								android:layout_height="match_parent"
-								android:layout_margin="20dp"
+								android:layout_margin="10dp"
 								android:orientation="vertical">
 		<ImageView android:layout_width="match_parent"
-							 android:layout_height="150dp"
+							 android:layout_height="30dp"
 							 android:src="@drawable/ic_balance_black_35dp"/>
-		<TextView android:textSize="25sp"
+		<TextView android:textSize="15sp"
 							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
 							android:text="Unbudgeted"
 							android:layout_gravity="center"
 							android:layout_margin="0dp"/>
 		<TextView android:id="@+id/unbudgeted"
-							android:textSize="50sp"
+							android:textSize="17sp"
 							android:textColor="#aaaaaa"
 							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
 							android:layout_gravity="center"
-							android:padding="5dp"
-							android:layout_margin="5dp"/>
+							android:padding="2dp"
+							android:layout_margin="2dp"/>
 	</LinearLayout>
 </LinearLayout>

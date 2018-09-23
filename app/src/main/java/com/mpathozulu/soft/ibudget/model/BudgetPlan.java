@@ -13,17 +13,11 @@ public class BudgetPlan implements Serializable {
 	private Persistable<BudgetEntry> persistable;
 	private int year;
 	private BudgetMonth month;
-	private SortedSet<BudgetEntry> incomes;
-	private SortedSet<BudgetEntry> expenditures;
-	private SortedSet<BudgetEntry> savings;
 
 	private BudgetPlan(Context context, int year, BudgetMonth month) {
 		persistable = new BudgetEntryPersistence(context);
 		this.year = year;
 		this.month = month;
-		this.incomes = persistable.getItems(BudgetEntryType.Income, year, month);
-		this.expenditures = persistable.getItems(BudgetEntryType.Expenditure, year, month);
-		this.savings = persistable.getItems(BudgetEntryType.Saving, year, month);
 	}
 
 	public BudgetMonth getMonth() {
@@ -53,19 +47,74 @@ public class BudgetPlan implements Serializable {
 		return null;
 	}
 
-	private double getTotalOutcome() {
-		return getTotalAmount(expenditures) + getTotalAmount(savings);
+	public double getTotalOutcome() {
+		return getExpenditure() +
+				getTransportation() +
+				getMedical() +
+				getFood() +
+				getShelter() +
+				getClothing() +
+				getInsurance() +
+				getSupplies() +
+				getDebtReduction() +
+				getSaving() +
+				getFunMoney();
 	}
 
-	private double getTotalIncome() {
-		return getTotalAmount(incomes);
+	public double getIncome() {
+		return getTotalAmount(BudgetEntryType.Income);
+	}
+
+	public double getExpenditure() {
+		return getTotalAmount(BudgetEntryType.Expenditure);
+	}
+
+	public double getTransportation() {
+		return getTotalAmount(BudgetEntryType.Transportation);
+	}
+
+	public double getMedical() {
+		return getTotalAmount(BudgetEntryType.Medical);
+	}
+
+	public double getFood() {
+		return getTotalAmount(BudgetEntryType.Food);
+	}
+
+	public double getShelter() {
+		return getTotalAmount(BudgetEntryType.Shelter);
+	}
+
+	public double getClothing() {
+		return getTotalAmount(BudgetEntryType.Clothing);
+	}
+
+	public double getInsurance() {
+		return getTotalAmount(BudgetEntryType.Insurance);
+	}
+
+	public double getSupplies() {
+		return getTotalAmount(BudgetEntryType.Supplies);
+	}
+
+	public double getDebtReduction() {
+		return getTotalAmount(BudgetEntryType.DebtReduction);
+	}
+
+	public double getFunMoney() {
+		return getTotalAmount(BudgetEntryType.FunMoney);
+	}
+
+	public double getSaving() {
+		return getTotalAmount(BudgetEntryType.Saving);
 	}
 
 	public double getSavings() {
-		return getTotalIncome() - getTotalOutcome();
+		return getIncome() - getTotalOutcome();
 	}
 
-	private double getTotalAmount(Iterable<BudgetEntry> budgetEntries) {
+	private double getTotalAmount(BudgetEntryType type) {
+		Iterable<BudgetEntry> budgetEntries = getItems(type);
 		int total = 0;
 		for (BudgetEntry budgetEntry : budgetEntries) {
 			total += budgetEntry.getAmount() * 100 * budgetEntry.getFrequency();
@@ -74,32 +123,14 @@ public class BudgetPlan implements Serializable {
 	}
 
 	public SortedSet<BudgetEntry> getItems(BudgetEntryType budgetEntryType) {
-		switch (budgetEntryType) {
-			case Income:
-				return incomes;
-			case Expenditure:
-				return expenditures;
-			case Saving:
-				return savings;
-		}
-		return null;
+		return  persistable.getItems(budgetEntryType, year, month);
 	}
 
 	public void delete(BudgetEntry budgetEntry) {
-		if (incomes.remove(budgetEntry) || expenditures.remove(budgetEntry) || savings.remove(budgetEntry)) persistable.delete(budgetEntry);
+		persistable.delete(budgetEntry);
 	}
 
 	public void save(BudgetEntry budgetEntry) {
-		switch (budgetEntry.getBudgetEntryType()) {
-			case Income:
-				incomes.add(budgetEntry);
-				break;
-			case Expenditure:
-				expenditures.add(budgetEntry);
-				break;
-			case Saving:
-				savings.add(budgetEntry);
-		}
 		persistable.save(budgetEntry);
 	}
 }
