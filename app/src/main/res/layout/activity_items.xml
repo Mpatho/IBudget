@@ -6,20 +6,27 @@
 							android:orientation="vertical"
 							tools:context="com.mpathozulu.soft.ibudget.view.ItemsActivity">
 	<android.support.v7.widget.Toolbar android:layout_width="match_parent"
-																		 android:layout_height="60dp"
-																		 android:background="#f7f7f7"
-																		 android:id="@+id/toolbar">
+									   android:layout_height="60dp"
+									   android:background="#f7f7f7"
+									   android:id="@+id/toolbar">
+		<TextView android:layout_width="wrap_content"
+				  android:layout_height="wrap_content"
+				  android:layout_gravity="center"
+				  android:id="@+id/type"
+				  android:textSize="20sp"
+				  android:text="Income"/>
+
 		<android.support.design.widget.FloatingActionButton android:layout_width="wrap_content"
-																												android:layout_height="wrap_content"
-																												android:layout_gravity="right"
-																												android:layout_margin="10dp"
-																												android:background="#6666ff"
-																												android:onClick="create"
-																												android:src="@drawable/ic_add_black_24dp"/>
+															android:layout_height="wrap_content"
+															android:layout_gravity="right"
+															android:layout_margin="10dp"
+															android:background="#6666ff"
+															android:onClick="create"
+															android:src="@drawable/ic_add_black_24dp"/>
 	</android.support.v7.widget.Toolbar>
 
 	<ListView android:id="@+id/items"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content">
+			  android:layout_width="match_parent"
+			  android:layout_height="wrap_content">
 	</ListView>
 </LinearLayout>

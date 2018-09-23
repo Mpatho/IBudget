@@ -10,6 +10,7 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import com.mpathozulu.soft.ibudget.BudgetEntryAdapter;
 import com.mpathozulu.soft.ibudget.R;
 import com.mpathozulu.soft.ibudget.model.BudgetMonth;
@@ -26,6 +27,8 @@ public class ItemsActivity extends AppCompatActivity {
 	private BudgetEntryType budgetEntryType;
 
 	private ListView items;
+
+	private TextView type;
 
 	private AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
 		@Override
@@ -47,6 +50,8 @@ public class ItemsActivity extends AppCompatActivity {
 		int year = intent.getIntExtra("BudgetYear", 10);
 		budgetPlan = BudgetPlan.getBudgetPlan(year, month);
 		items = (ListView) findViewById(R.id.items);
+		type = (TextView) findViewById(R.id.type);
+		type.setText(budgetEntryType.getName());
 		items.setOnItemClickListener(onItemClickListener);
 		items.setAdapter(new BudgetEntryAdapter(this, budgetPlan.getItems(budgetEntryType)));
 	}
