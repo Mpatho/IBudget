@@ -48,7 +48,7 @@ public class BudgetPlan implements Serializable {
 	}
 
 	public double getTotalOutcome() {
-		return getExpenditure() +
+		return getPersonal() +
 				getTransportation() +
 				getMedical() +
 				getFood() +
@@ -65,7 +65,7 @@ public class BudgetPlan implements Serializable {
 		return getTotalAmount(BudgetEntryType.Income);
 	}
 
-	public double getExpenditure() {
+	public double getPersonal() {
 		return getTotalAmount(BudgetEntryType.Expenditure);
 	}
 
@@ -109,7 +109,7 @@ public class BudgetPlan implements Serializable {
 		return getTotalAmount(BudgetEntryType.Saving);
 	}
 
-	public double getSavings() {
+	public double getUnbudgeted() {
 		return getIncome() - getTotalOutcome();
 	}
 

@@ -7,10 +7,10 @@
 						 android:layout_gravity="center|left"
 						 android:src="@drawable/ic_monetization_on_black_40dp"/>
 	<LinearLayout android:layout_width="wrap_content"
-								android:layout_height="wrap_content"
-								android:orientation="vertical"
-								android:layout_weight="1"
-								android:padding="15dp">
+				  android:layout_height="wrap_content"
+				  android:orientation="vertical"
+				  android:layout_weight="1"
+				  android:padding="15dp">
 		<TextView android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
 							android:id="@+id/name"

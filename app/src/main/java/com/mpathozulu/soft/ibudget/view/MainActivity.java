@@ -10,6 +10,7 @@ import com.mpathozulu.soft.ibudget.model.BudgetMonth;
 import com.mpathozulu.soft.ibudget.model.BudgetPlan;
 import com.mpathozulu.soft.ibudget.model.BudgetEntryType;
 
+import java.text.BreakIterator;
 import java.util.Calendar;
 import java.util.Locale;
 
@@ -19,6 +20,18 @@ public class MainActivity extends AppCompatActivity {
 	private int month;
 	private TextView yearMonth;
 	private TextView unbudgected;
+	private TextView income;
+	private TextView personal;
+	private TextView transportation;
+	private TextView medical;
+	private TextView food;
+	private TextView shelter;
+	private TextView clothing;
+	private TextView insurance;
+	private TextView supplies;
+	private TextView debtReduction;
+	private TextView funMoney;
+	private TextView saving;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +39,21 @@ public class MainActivity extends AppCompatActivity {
 		setContentView(R.layout.activity_main);
 		yearMonth = (TextView) findViewById(R.id.year_month);
 		unbudgected = (TextView) findViewById(R.id.unbudgeted);
-		year = Calendar.getInstance().get(Calendar.YEAR);
+		income = (TextView) findViewById(R.id.income);
+		personal = (TextView) findViewById(R.id.personal);
+		transportation = (TextView) findViewById(R.id.transportation);
+		medical = (TextView) findViewById(R.id.medical);
+		food = (TextView) findViewById(R.id.food);
+		shelter = (TextView) findViewById(R.id.shelter);
+		clothing = (TextView) findViewById(R.id.clothing);
+		insurance = (TextView) findViewById(R.id.insurance);
+		supplies = (TextView) findViewById(R.id.supplies);
+		debtReduction = (TextView) findViewById(R.id.debtReduction);
+		funMoney = (TextView) findViewById(R.id.funMoney);
+		saving = (TextView) findViewById(R.id.saving);
+
 		month = Calendar.getInstance().get(Calendar.MONTH);
+		year = Calendar.getInstance().get(Calendar.YEAR);
 	}
 
 	@Override
@@ -39,8 +65,20 @@ public class MainActivity extends AppCompatActivity {
 	private void update() {
 		BudgetMonth budgetMonth = BudgetMonth.values()[month];
 		budgetPlan = BudgetPlan.getBudgetPlan(year, budgetMonth);
-		unbudgected.setText(String.format(Locale.getDefault(), "R %.2f", budgetPlan.getSavings()));
+		unbudgected.setText(String.format(Locale.getDefault(), "R %.2f", budgetPlan.getUnbudgeted()));
 		yearMonth.setText(String.format(Locale.getDefault(), "%d %s",year, budgetMonth.getName()));
+		income.setText(String.format(Locale.getDefault(), "R %.2f", budgetPlan.getIncome()));
+		personal.setText(String.format(Locale.getDefault(), "R %.2f", budgetPlan.getPersonal()));
+		transportation.setText(String.format(Locale.getDefault(), "R %.2f", budgetPlan.getTransportation()));
+		medical.setText(String.format(Locale.getDefault(), "R %.2f", budgetPlan.getMedical()));
+		food.setText(String.format(Locale.getDefault(), "R %.2f", budgetPlan.getFood()));
+		shelter.setText(String.format(Locale.getDefault(), "R %.2f", budgetPlan.getShelter()));
+		clothing.setText(String.format(Locale.getDefault(), "R %.2f", budgetPlan.getClothing()));
+		insurance.setText(String.format(Locale.getDefault(), "R %.2f", budgetPlan.getInsurance()));
+		supplies.setText(String.format(Locale.getDefault(), "R %.2f", budgetPlan.getSupplies()));
+		debtReduction.setText(String.format(Locale.getDefault(), "R %.2f", budgetPlan.getDebtReduction()));
+		funMoney.setText(String.format(Locale.getDefault(), "R %.2f", budgetPlan.getFunMoney()));
+		saving.setText(String.format(Locale.getDefault(), "R %.2f", budgetPlan.getSaving()));
 	}
 
 	public void selectIncome(View view) {
