@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	public void selectInsurance(View view) {
-		select(BudgetEntryType.Supplies);
+		select(BudgetEntryType.Insurance);
 	}
 
 	public void selectSupplies(View view) {
@@ -118,11 +118,11 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	public void selectDebtReduction(View view) {
-		select(BudgetEntryType.Supplies);
+		select(BudgetEntryType.DebtReduction);
 	}
 
 	public void selectFunMoney(View view) {
-		select(BudgetEntryType.Supplies);
+		select(BudgetEntryType.FunMoney);
 	}
 
 	public void selectSavings(View view) {
