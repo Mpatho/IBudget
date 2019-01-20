@@ -1,45 +1,24 @@
 package com.mpathozulu.ibudget.model;
 
-import com.mpathozulu.ibudget.database.Column;
-import com.mpathozulu.ibudget.database.Table;
+import com.mpathozulu.ibudget.persistance.Persistable;
 
-import java.io.Serializable;
+public class BudgetEntry extends Persistable<BudgetEntry> {
 
-@Table(name = "Budget_Entry")
-public class BudgetEntry implements Comparable<BudgetEntry>, Serializable {
-
-    private Long id;
-
-    @Column(name = "name", type = "TEXT")
     private String name;
 
-    @Column(name = "amount", type = "REAL")
     private int amount;
 
-    @Column(name = "frequency", type = "REAL")
     private int frequency;
 
-    @Column(name = "Year", type = "INTEGER")
     private int year;
 
-    @Column(name = "Month", type = "TEXT")
     private BudgetMonth month;
 
-    @Column(name = "Type", type = "TEXT")
     private BudgetEntryType budgetEntryType;
 
 
     public BudgetEntry(Long id, String name, double amount, int frequency, int year, BudgetMonth month, BudgetEntryType budgetEntryType) {
-        this.id = id;
-        this.setName(name);
-        this.setAmount(amount);
-        this.frequency = frequency;
-        this.year = year;
-        this.month = month;
-        this.budgetEntryType = budgetEntryType;
-    }
-
-    public BudgetEntry(String name, double amount, int frequency, int year, BudgetMonth month, BudgetEntryType budgetEntryType) {
+        super(id);
         this.setName(name);
         this.setAmount(amount);
         this.frequency = frequency;
@@ -49,7 +28,7 @@ public class BudgetEntry implements Comparable<BudgetEntry>, Serializable {
     }
 
     public BudgetEntry(int year, BudgetMonth month, BudgetEntryType budgetEntryType) {
-        this(null, 0, 0, year, month, budgetEntryType);
+        this(null, null, 0, 0, year, month, budgetEntryType);
     }
 
     public String getName() {
@@ -92,20 +71,8 @@ public class BudgetEntry implements Comparable<BudgetEntry>, Serializable {
         this.month = month;
     }
 
-    BudgetEntryType getBudgetEntryType() {
+    public BudgetEntryType getBudgetEntryType() {
         return budgetEntryType;
-    }
-
-    boolean hasId() {
-        return id != null;
-    }
-
-    long getId() {
-        return id;
-    }
-
-    void setId(long id) {
-        this.id = id;
     }
 
     @Override

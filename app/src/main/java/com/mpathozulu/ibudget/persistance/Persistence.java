@@ -1,8 +1,8 @@
-package com.mpathozulu.ibudget.persist;
+package com.mpathozulu.ibudget.persistance;
 
 import java.util.SortedSet;
 
-public interface Persistable<T> {
+public interface Persistence<T extends Persistable> {
 	String getDatabaseName();
 
 	String[] getSchemaStatement();

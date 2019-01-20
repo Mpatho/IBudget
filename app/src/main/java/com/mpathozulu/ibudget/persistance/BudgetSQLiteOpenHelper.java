@@ -1,4 +1,4 @@
-package com.mpathozulu.ibudget.persist;
+package com.mpathozulu.ibudget.persistance;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -6,9 +6,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class BudgetSQLiteOpenHelper extends SQLiteOpenHelper {
 
-	private Persistable persistable;
+	private Persistence persistable;
 
-	public BudgetSQLiteOpenHelper(Context context, Persistable persistable) {
+	BudgetSQLiteOpenHelper(Context context, Persistence persistable) {
 		super(context, persistable.getDatabaseName(), null, 1);
 		this.persistable = persistable;
 	}
@@ -23,8 +23,8 @@ public class BudgetSQLiteOpenHelper extends SQLiteOpenHelper {
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 		for(String table: persistable.getTablesName()) {
-//			db.execSQL("DROP TABLE IF EXISTS " + table);
+			db.execSQL("DROP TABLE IF EXISTS " + table);
 		}
-//		onCreate(db);
+		onCreate(db);
 	}
 }

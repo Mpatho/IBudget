@@ -2,7 +2,8 @@ package com.mpathozulu.ibudget.model;
 
 import android.content.Context;
 import com.mpathozulu.ibudget.BudgetApplication;
-import com.mpathozulu.ibudget.persist.Persistable;
+import com.mpathozulu.ibudget.persistance.BudgetEntryPersistence;
+import com.mpathozulu.ibudget.persistance.Persistence;
 
 import java.io.Serializable;
 import java.util.*;
@@ -10,7 +11,7 @@ import java.util.*;
 public class BudgetPlan implements Serializable {
 
 	private static List<BudgetPlan> budgetPlans = new LinkedList<>();
-	private Persistable<BudgetEntry> persistable;
+	private Persistence<BudgetEntry> persistable;
 	private int year;
 	private BudgetMonth month;
 
@@ -39,15 +40,7 @@ public class BudgetPlan implements Serializable {
 		return budgetPlan;
 	}
 
-	public static BudgetPlan getBudgetPlan() {
-		int size = budgetPlans.size();
-		if (size != 0) {
-			return budgetPlans.get(size - 1);
-		}
-		return null;
-	}
-
-	public double getTotalOutcome() {
+	private double getTotalOutcome() {
 		return getPersonal() +
 				getTransportation() +
 				getMedical() +
